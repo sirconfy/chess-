@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Queen Attack</title>
+<style>
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #FFDEAD;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background: #8B4513;
+  color: black;
+  text-align: center;
+  margin: 0 0 30px 0;
+  padding: 20px;
+}
+
+.chessboard{
+  margin: 0 auto;
+  width: 640px;
+  height: 640px;
+  text-align: center;
+  border: 15px solid #714d38;
+  font-size: 0;
+  padding: 0;
+}
+
+ .dark {
+  width: 80px;
+  height: 80px;
+  background-color: #714d38;
+  display: table-cell;
+  vertical-align: baseline;
+  border:5px solid #714d38;
+
+}
+
+.light {
+  width: 80px;
+  height: 80px;
+  background-color: #efddb4;
+  display: table-cell;
+  vertical-align: baseline;
+  border: 5px solid #efddb4;
+}
+
+#check, #refresh {
+  display: block;
+  cursor: pointer;
+  margin: auto;
+  font-size: 20px;
+  padding: 10px;
+  width: 120px;
+  background: #714d38;
+  color: white;
+  border-radius: 7px;
+  text-align: center;
+  position: relative;
+}
+
+
+#check {
+  margin: auto;
+  margin-top: 25px;
+  float: left;
+}
+
+#refresh {
+  margin: auto;
+  margin-top: 25px;
+  float: right;
+}
+
+#check:hover, #refresh:hover {
+  background: #8B4513;
+}
+
+.alerts {
+  display: inline;
+}
+#alert {
+  display: block;
+  font-size: 18px;
+  color: #008000;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-style: oblique;
+}
+
+#alerterror {
+  display: block;
+  font-size: 18px;
+  color: red;
+  text-align: center;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+</style>
+
+</head>
+  
+<body>
+  <header>
+    <h2>Queen Attack</h2>
+      <p><em>Given the position of two queens on a chess board, let's see whether or not they are positioned to attack each other.</em></p>
+      <p><strong>Note that a queen can attack pieces which are on the same row,
+column, or diagonal.</strong></p>
+  </header>
+  <hr />
+  <section>
+    
+    
+    <div class ="chessboard">
+      <!--1st row-->
+    <div>
+        <button class="light row A1" id = "11"></button>
+        <button class="dark row B1" id = "12"></button>
+        <button class="light row C1" id ="13"></button>
+        <button class="dark row D1" id = "14"></button>
+        <button class="light row E1" id = "15"></button>
+        <button class="dark row F1" id = "16"></button>
+        <button class="light row G1" id = "17"></button>
+        <button class="dark row H1" id = "18"></button>
+    </div>
+    
+       <!--2nd ROW-->
+      <div>
+        <button class="dark row A2" id ="21"></button>
+        <button class="light row B2" id = "22"></button>
+        <button class="dark row C2"id = "23"></button>
+        <button class="light row D2" id = "24"></button>
+        <button class="dark row E2" id ="25"></button>
+        <button class="light row F2" id = "26"></button>
+        <button class="dark row G2" id = "27"></button>
+        <button class="light row H2" id = "28"></button>
+    </div>
+    
+      <!--3rd ROW-->
+        <div>
+        <button class="light row A3" id = "31"></button>
+        <button class="dark row B3" id = "32"></button>
+        <button class="light row C3" id = "33"></button>
+        <button class="dark row D3" id = "34"></button>
+        <button class="light row E3" id = "35"></button>
+        <button class="dark row F3" id = "36"></button>
+          <button class="light row G3" id = "37"></button>
+          <button class="dark row  H3" id = "38"></button>
+    </div>
+    
+     <!--4th ROW-->
+    <div>
+      <button class="dark row A4" id = "41"></button>
+      <button class="light row B4" id = "42"></button>
+      <button class="dark row C4" id = "43"></button>
+      <button class="light row D4" id= "44"></button>
+      <button class="dark row E4" id = "45"></button>
+      <button class="light row F4" id = "46"></button>
+      <button class="dark row G4" id ="47"></button>
+      <button class="light row H4" id = "48"></button>
+    <div/>
+  
+  <!--5th ROW-->
+      <div>
+        <button class="light row A5" id = "51"></button>
+        <button class="dark row B5" id = "52"></button>
+        <button class="light row C5" id = "53"></button>
+        <button class="dark row D5" id = "54"></button>
+        <button class="light row E5" id = "55"></button>
+        <button class="dark row F5" id = "56"></button>
+        <button class="light row G5" id = "57"></button>
+        <button class="dark row H5" id = "58"></button>
+    </div>
+      
+      <!--6th ROW-->
+      <div>
+        <button class="dark row A6" id = "61"></button>
+        <button class="light row B6" id = "62"></button>
+        <button class="dark row C6" id = "63"></button>
+        <button class = "light row D6" id = "64"></button>
+        <button class="dark row E6" id ="65"></button>
+        <button class="light row F6" id = "66"></button>
+        <button class="dark row G6" id = "67"></button>
+        <button class="light row H6" id = "68"></button>
+       </div>
+  
+      <!--7th ROW-->
+      <div>
+        <button class="light row A7" id = "71"></button>
+        <button class="dark row B7" id = "72"></button>
+        <button class="light row C7" id = "73"></button>
+        <button class="dark row D7" id = "74"></button>
+        <button class="light row E7" id  "75"></buttton>
+        <button class="dark row F7" id = "76"></button>
+        <button class="light row G7" id = "77"></button>
+        <button class="dark row H7" id = "78"></button>
+       </div>
+      
+      <!--8th ROW-->
+      <div>
+        <button class="dark row A8" id = "81"></button>
+        <button class="light row B8" id = "82"></button>
+        <button class="dark row C8" id = "83"></button>
+        <button class="light row D8" id = "84"></button>
+        <button class="dark row E8" id = "85"></button>
+        <button class="light row F8" id = "86"></button>
+        <button class="dark row G8" id = "87"></button>
+        <button class="light row H8" id = "88"></button>
+       </div>
+    </div>
+      
+      <button type="submit" id="check">Check</button>
+      
+      <button type="button" onClick="window.location.href=window.location.href" id="refresh">Refresh</button>
+      <div class="alerts">
+      <div id="alert"></div>
+      <div id="alerterror"></div>
+  </section>
+
+
+<script>
+const select = document.querySelectorAll(".row");
+const alert = document.querySelector("#alert");
+const alerts = document.querySelector("#alerterror");
+const attack = document.querySelector("#check");
+attack.addEventListener("click", checkAttack);
+    let noSelected = 0;
+    let selectedCell = [];
+
+    function selectPosition() {
+      let id = this.getAttribute("id");
+
+      let selectedIndex = selectedCell.indexOf(id);
+
+      if (selectedIndex >= 0) {                       this.style.border = "none";
+        noSelected--;
+        return;
+      } else if (noSelected < 2) {
+        this.style.border = "5px solid black";
+        selectedCell.push(id)
+        noSelected++;
+      } else {
+        alerts.textContent = " You can only make two moves!";
+        alert.textContent = "";
+      }
+      return;
+    }
+
+    for (let i = 0; i < select.length; i++) {
+      select[i].addEventListener('click', selectPosition, false);
+    }
+
+
+
+   function attackFunction() {
+      if (selectedCell.length !== 2) {
+        alerts.textContent = "You will have to make two moves!";
+        alert.textContent = "";
+      } else {
+
+        let position1 = selectedCell[0];
+        let position2 = selectedCell[1];
+
+        let cell11 = position1.split("", position1)[0]
+        let cell12 = position1.split("", position1)[1]
+
+        let cell21 = position2.split("", position2)[0]
+        let cell22 = position2.split("", position2)[1]
+
+        //horizontal check
+        if (cell11 === cell21) {
+          return true;
+        }
+
+        //vertical check
+        if (cell12 === cell22) {
+          return true;
+        }
+
+        //diagonal left to right
+        if (cell11 - cell12 === cell21 - cell22) {
+          return true;
+        }
+
+        let positionRightLeft = Math.abs(parseInt(position1) - parseInt(position2));
+
+        let moduleRightLeft = (positionRightLeft % 9 === 0) ? true : false
+
+
+        if (moduleRightLeft) {
+          return true;
+        }
+        alerts.textContent = "A Queen cannot be attacked!";
+        alert.textContent = "";
+      }
+    }
+
+    function checkAttack() {
+      let attack = attackFunction();
+      if (attack) {
+        alert.textContent = "A Queen has been attacked!!!";
+        alerts.textContent = "";
+      } 
+      alerts.style.display = "block";
+      return;
+    }
+
+
+	</sript>
+</body>
+  
+</html>
